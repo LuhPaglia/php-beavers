@@ -7,16 +7,16 @@ CREATE TABLE `beavers`.`admin_tb` (
   `birthday` DATE NULL,
   `address` VARCHAR(255),
   PRIMARY KEY (`admin_id`),
-  UNIQUE INDEX `username_UNIQUE` (`user_name` ASC) VISIBLE,
-  UNIQUE INDEX `admin_id_UNIQUE` (`admin_id` ASC) VISIBLE,
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+  UNIQUE INDEX `username_UNIQUE` (`user_name` ASC)  ,
+  UNIQUE INDEX `admin_id_UNIQUE` (`admin_id` ASC)  ,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC)  );
 
 CREATE TABLE `beavers`.`course_tb` (
   `course_id` INT NOT NULL AUTO_INCREMENT,
   `course_name` VARCHAR(200) NOT NULL,
   `description` VARCHAR(45) NULL,
   PRIMARY KEY (`course_id`),
-  UNIQUE INDEX `course_id_UNIQUE` (`course_id` ASC) VISIBLE);
+  UNIQUE INDEX `course_id_UNIQUE` (`course_id` ASC)  );
 
 CREATE TABLE `beavers`.`teacher_tb` (
   `teacher_id` int NOT NULL AUTO_INCREMENT,
@@ -45,11 +45,11 @@ CREATE TABLE `beavers`.`student_tb` (
   `address` VARCHAR(255) NULL,
   `birthday` VARCHAR(45) NULL,
   PRIMARY KEY (`student_id`),
-  UNIQUE INDEX `student_id_UNIQUE` (`student_id` ASC) VISIBLE,
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-  UNIQUE INDEX `user_name_UNIQUE` (`user_name` ASC) VISIBLE,
-  INDEX `teacher_fk_idx` (`teacher_id` ASC) VISIBLE,
-  INDEX `course_id_idx` (`course_id` ASC) VISIBLE,
+  UNIQUE INDEX `student_id_UNIQUE` (`student_id` ASC)  ,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC)  ,
+  UNIQUE INDEX `user_name_UNIQUE` (`user_name` ASC)  ,
+  INDEX `teacher_fk_idx` (`teacher_id` ASC)  ,
+  INDEX `course_id_idx` (`course_id` ASC)  ,
   CONSTRAINT `teacher_fk`
     FOREIGN KEY (`teacher_id`)
     REFERENCES `beavers`.`teacher_tb` (`teacher_id`)
@@ -71,10 +71,10 @@ CREATE TABLE `beavers`.`grade_tb` (
   `mark_date` DATE NOT NULL,
   `feedback` VARCHAR(255) NULL,
   PRIMARY KEY (`grade_id`),
-  UNIQUE INDEX `grade_id_UNIQUE` (`grade_id` ASC) VISIBLE,
-  INDEX `student_fk_idx` (`student_id` ASC) VISIBLE,
-  INDEX `teacher_fk_idx` (`teacher_id` ASC) VISIBLE,
-  INDEX `course_id_idx` (`course_id` ASC) VISIBLE,
+  UNIQUE INDEX `grade_id_UNIQUE` (`grade_id` ASC)  ,
+  INDEX `student_fk_idx` (`student_id` ASC)  ,
+  INDEX `teacher_fk_idx` (`teacher_id` ASC)  ,
+  INDEX `course_id_idx` (`course_id` ASC)  ,
   CONSTRAINT `student_grade_fk`
     FOREIGN KEY (`student_id`)
     REFERENCES `beavers`.`student_tb` (`student_id`)
