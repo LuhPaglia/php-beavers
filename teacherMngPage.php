@@ -53,7 +53,7 @@
         
       <div class="form-floating mb-3">
           <input
-            type="text"
+            type="number"
             class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id">
           <label for="teacher_id">teacher_id</label>
         </div>
@@ -65,7 +65,7 @@
         </div>
         <div class="form-floating mb-3">
           <input
-            type="text"
+            type="password"
             class="form-control" name="password" id="password" placeholder="password">
           <label for="password">password</label>
         </div>
@@ -77,7 +77,7 @@
         </div>
         <div class="form-floating mb-3">
           <input
-            type="text"
+            type="number"
             class="form-control" name="course_id" id="course_id" placeholder="course_id">
           <label for="course_id">course_id</label>
         </div>
@@ -95,7 +95,7 @@
         </div>
         <div class="form-floating mb-3">
           <input
-            type="text"
+            type="date"
             class="form-control" name="birthday" id="birthday" placeholder="birthday">
           <label for="birthday">birthday</label>
         </div>
@@ -110,11 +110,3 @@
     
 </main>
 <?php include './pages/footer.php'; ?>
-<script>
-    const myModal = document.getElementById('myModal')
-    const myInput = document.getElementById('myInput')
-
-    myModal.addEventListener('shown.bs.modal', () => {
-      myInput.focus()
-    })
-</script>
