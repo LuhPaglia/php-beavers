@@ -1,7 +1,6 @@
 <?php include './pages/header.php'; ?>
-<main>
     <div style="display:flex; justify-content:space-between; padding:3% 0;">
-        <h1>Teacher Management</h1>
+        <h1>Student Management</h1>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Add
@@ -12,12 +11,12 @@
         <table class="table table-primary">
             <thead>
                 <tr>
-                    <th>teacher_id</th>
+                    <th>student_id</th>
                     <th>email</th>
                     <th>password</th>
                     <th>fullname</th>
                     <th>course_id</th>
-                    <th>salary</th>
+                    <th>teacher_id</th>
                     <th>address</th>
                     <th>birthday</th>
                     <th>edit</th>
@@ -34,7 +33,7 @@
                     <td>889, W Pender St</td>
                     <td>2003/07/22</td>
                     <td>
-                        <button class="btn btn-primary">Edit</button>
+                        <a class="btn btn-primary" href="<?php echo $_SERVER['PHP_SELF']."?student_id=" ?>" role="button">Edit</a>
                     </td>
                 </tr>
             </tbody>
@@ -54,8 +53,8 @@
       <div class="form-floating mb-3">
           <input
             type="number"
-            class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id">
-          <label for="teacher_id">teacher_id</label>
+            class="form-control" name="student_id" id="student_id" placeholder="student_id">
+          <label for="student_id">student_id</label>
         </div>
         <div class="form-floating mb-3">
           <input
@@ -72,8 +71,8 @@
         <div class="form-floating mb-3">
           <input
             type="text"
-            class="form-control" name="fullname" id="fullname" placeholder="fullname">
-          <label for="fullname">fullname</label>
+            class="form-control" name="username" id="username" placeholder="username">
+          <label for="username">fullname</label>
         </div>
         <div class="form-floating mb-3">
           <input
@@ -84,8 +83,8 @@
         <div class="form-floating mb-3">
           <input
             type="text"
-            class="form-control" name="salary" id="salary" placeholder="salary">
-          <label for="salary">salary</label>
+            class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id">
+          <label for="teacher_id">teacher_id</label>
         </div>
         <div class="form-floating mb-3">
           <input
@@ -108,5 +107,13 @@
   </div>
 </div>
     
-</main>
 <?php include './pages/footer.php'; ?>
+
+
+<?php 
+    if($_SERVER['REQUEST_METHOD']=="GET") {
+
+        
+    }
+
+?>
