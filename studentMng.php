@@ -1,4 +1,19 @@
-<?php include './pages/header.php'; ?>
+<?php
+  include './pages/header.php';
+  include './services/dbservices.php';
+
+  $dbSrv = new dbServices($hostName,$userName,$password,$dbName);
+
+  if($dbSrv->dbConnect()){
+    echo "connected";
+
+  }else{
+    echo "problem";
+    exit();
+  }
+
+
+?>
     <div style="display:flex; justify-content:space-between; padding:3% 0;">
         <h1>Student Management</h1>
         <!-- Button trigger modal -->
@@ -23,6 +38,28 @@
                 </tr>
             </thead>
             <tbody>
+
+            <?php
+
+              $result = $dbSrv->selectAll("student_tb");
+
+              if ($result->num_rows > 0) {
+                // output data of each row
+
+                while($row = $result->fetch_assoc()) {
+                  echo "<tr>";
+
+                  foreach ($row as $value) {
+                    echo "<td>$value</td>";
+                  }
+                  echo "<td><a class='btn btn-primary' href=".$_SERVER['PHP_SELF']."?student_id="." role='button'>Edit</a></td>";
+                  echo "</tr>";
+                }
+
+              } else {
+                echo "0 results";
+              }
+            ?>
                 <tr>
                     <td>11</td>
                     <td>austyn@mail.com</td>
@@ -53,37 +90,37 @@
       <div class="form-floating mb-3">
           <input
             type="number"
-            class="form-control" name="student_id" id="student_id" placeholder="student_id">
+            class="form-control" name="student_id" id="student_id" placeholder="student_id" required>
           <label for="student_id">student_id</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="text"
-            class="form-control" name="email" id="email" placeholder="email">
+            class="form-control" name="email" id="email" placeholder="email" required>
           <label for="email">email</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="password"
-            class="form-control" name="password" id="password" placeholder="password">
+            class="form-control" name="password" id="password" placeholder="password" required>
           <label for="password">password</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="text"
-            class="form-control" name="username" id="username" placeholder="username">
+            class="form-control" name="username" id="username" placeholder="username" required>
           <label for="username">fullname</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="number"
-            class="form-control" name="course_id" id="course_id" placeholder="course_id">
+            class="form-control" name="course_id" id="course_id" placeholder="course_id" required>
           <label for="course_id">course_id</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="text"
-            class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id">
+            class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id" required>
           <label for="teacher_id">teacher_id</label>
         </div>
         <div class="form-floating mb-3">
