@@ -6,12 +6,10 @@
 
   if($dbSrv->dbConnect()){
     echo "connected";
-
   }else{
     echo "problem";
     exit();
   }
-
 
 ?>
     <div style="display:flex; justify-content:space-between; padding:3% 0;">
@@ -75,60 +73,64 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+
+      <form action="./studentAdd.php" method="POST">
+        <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control" name="student_id" id="student_id" placeholder="student_id">
+            <label for="student_id">student_id</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control" name="email" id="email" placeholder="email" required>
+            <label for="email">email</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control" name="user_name" id="user_name" placeholder="user_name" required>
+            <label for="user_name">fullname</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control" name="password" id="password" placeholder="password" required>
+            <label for="password">password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control" name="course_id" id="course_id" placeholder="course_id" required>
+            <label for="course_id">course_id</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id" required>
+            <label for="teacher_id">teacher_id</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control" name="address" id="address" placeholder="address">
+            <label for="address">address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="date"
+              class="form-control" name="birthday" id="birthday" placeholder="birthday">
+            <label for="birthday">birthday</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value="Save changes">
+        </div>
+      </form>
         
-      <div class="form-floating mb-3">
-          <input
-            type="number"
-            class="form-control" name="student_id" id="student_id" placeholder="student_id" readonly>
-          <label for="student_id">student_id</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control" name="email" id="email" placeholder="email" required>
-          <label for="email">email</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="password"
-            class="form-control" name="password" id="password" placeholder="password" required>
-          <label for="password">password</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control" name="username" id="username" placeholder="username" required>
-          <label for="username">fullname</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="number"
-            class="form-control" name="course_id" id="course_id" placeholder="course_id" required>
-          <label for="course_id">course_id</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id" required>
-          <label for="teacher_id">teacher_id</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control" name="address" id="address" placeholder="address">
-          <label for="address">address</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="date"
-            class="form-control" name="birthday" id="birthday" placeholder="birthday">
-          <label for="birthday">birthday</label>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
   </div>
 </div>
