@@ -5,64 +5,81 @@
   $dbSrv = new dbServices($hostName,$userName,$password,$dbName);
 
   if($dbSrv->dbConnect()){
-    echo "connected";
   }else{
-    echo "problem";
-    exit();
+    echo "DB connection problem";
   }
 
 ?>
-    <div style="display:flex; justify-content:space-between; padding:3% 0;">
-        <h1>Student Management</h1>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Add
-        </button>
-    </div>
 
-    <div class="table-responsive">
-        <table class="table table-primary">
-            <thead>
-                <tr>
-                    <th>student_id</th>
-                    <th>email</th>
-                    <th>fullname</th>
-                    <th>password</th>
-                    <th>course_id</th>
-                    <th>teacher_id</th>
-                    <th>address</th>
-                    <th>birthday</th>
-                    <th>edit</th>
-                </tr>
-            </thead>
-            <tbody>
+<!-- Alert -->
+<div class="alert alert-<?php if($_GET['msg']==1) echo "success"; elseif($_GET['msg']==2) echo "danger"; ?>
+ alert-dismissible fade show" role="alert" style="display: <?php
+    if(isset($_GET['msg'])) echo "block";
+    else echo "none";
+?> ;">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <strong>Alert </strong><?php if($_GET['msg']==1) echo "Registered Successfully"; elseif($_GET['msg']==2) echo "Registration Failed" ?>
+</div>
 
-            <?php
+<script>
+  var alertList = document.querySelectorAll('.alert');
+  alertList.forEach(function (alert) {
+    new bootstrap.Alert(alert)
+  })
+</script>
 
-              // if(teacher login) { changing query}
-              $sqlCommand = "SELECT * FROM student_tb";
-              $result = $dbSrv->dbcon->query($sqlCommand);
 
-              if ($result->num_rows > 0) {
-                // output data of each row
+<div style="display:flex; justify-content:space-between; padding:3% 0;">
+    <h1>Student Management</h1>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add
+    </button>
+</div>
 
-                while($row = $result->fetch_assoc()) {
-                  echo "<tr>";
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th>student_id</th>
+                <th>email</th>
+                <th>fullname</th>
+                <th>password</th>
+                <th>course_id</th>
+                <th>teacher_id</th>
+                <th>address</th>
+                <th>birthday</th>
+                <th>edit</th>
+            </tr>
+        </thead>
+        <tbody>
 
-                  foreach ($row as $value) {
-                    echo "<td>$value</td>";
-                  }
-                  echo "<td><a class='btn btn-primary' href=".$_SERVER['PHP_SELF']."?student_id="." role='button'>Edit</a></td>";
-                  echo "</tr>";
-                }
+        <?php
 
-              } else {
-                echo "0 results";
+          // if(teacher login) { changing query}
+          $sqlCommand = "SELECT * FROM student_tb";
+          $result = $dbSrv->dbcon->query($sqlCommand);
+
+          if ($result->num_rows > 0) {
+            // output data of each row
+
+            while($row = $result->fetch_assoc()) {
+              echo "<tr>";
+
+              foreach ($row as $value) {
+                echo "<td>$value</td>";
               }
-            ?>
-            </tbody>
-        </table>
-    </div>
+              echo "<td><a class='btn btn-primary' href=".$_SERVER['PHP_SELF']."?student_id="." role='button'>Edit</a></td>";
+              echo "</tr>";
+            }
+
+          } else {
+            echo "0 results";
+          }
+        ?>
+        </tbody>
+    </table>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

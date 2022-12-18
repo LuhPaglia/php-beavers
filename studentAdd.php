@@ -23,12 +23,14 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     if($dbSrv->dbConnect()){
         if($dbSrv->insert('student_tb',$valuesArray)){
             // "added";
-            header("Location: studentMng.php?result=1");
+            header("Location: studentMng.php?msg=1");
             exit();
         }
+    } else{
+        echo "DB connection problem";
     }
     // "not added";
-    header("Location: studentMng.php?result=2");
+    header("Location: studentMng.php?msg=2");
     exit();
 
 }
