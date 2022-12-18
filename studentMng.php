@@ -28,8 +28,8 @@
                 <tr>
                     <th>student_id</th>
                     <th>email</th>
-                    <th>password</th>
                     <th>fullname</th>
+                    <th>password</th>
                     <th>course_id</th>
                     <th>teacher_id</th>
                     <th>address</th>
@@ -41,7 +41,9 @@
 
             <?php
 
-              $result = $dbSrv->selectAll("student_tb");
+              // if(teacher login) { changing query}
+              $sqlCommand = "SELECT * FROM student_tb";
+              $result = $dbSrv->dbcon->query($sqlCommand);
 
               if ($result->num_rows > 0) {
                 // output data of each row
@@ -60,19 +62,6 @@
                 echo "0 results";
               }
             ?>
-                <tr>
-                    <td>11</td>
-                    <td>austyn@mail.com</td>
-                    <td>test</td>
-                    <td>Austyn You</td>
-                    <td>1001</td>
-                    <td>$85000</td>
-                    <td>889, W Pender St</td>
-                    <td>2003/07/22</td>
-                    <td>
-                        <a class="btn btn-primary" href="<?php echo $_SERVER['PHP_SELF']."?student_id=" ?>" role="button">Edit</a>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -90,7 +79,7 @@
       <div class="form-floating mb-3">
           <input
             type="number"
-            class="form-control" name="student_id" id="student_id" placeholder="student_id" required>
+            class="form-control" name="student_id" id="student_id" placeholder="student_id" readonly>
           <label for="student_id">student_id</label>
         </div>
         <div class="form-floating mb-3">
