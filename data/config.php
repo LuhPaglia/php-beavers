@@ -1,5 +1,5 @@
 <?php
-    $baseName = "http://localhost/PHP/";
+    $baseName = "http://localhost/PHP/PHP-BEAVERS/";
     $hostName = "localhost";
     $userName = "root";
     $password = "";
