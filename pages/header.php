@@ -23,7 +23,14 @@
                         <a class="nav-link" style="display: <?php 
                         if(isset($_SESSION['logUser'])) echo "block";
                         else echo "none";
-                         ?> ;" href="<?php echo $baseName.'logout.php';?>">Logout</a>
+                         ?> ;" href="<?php echo $baseName.'/server/logout.php';?>">Logout</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" style="display: <?php 
+                        if(isset($_SESSION['role']) && $_SESSION['role']!= "student") echo "block";
+                        else echo "none";
+                         ?> ;" href="<?php echo $baseName.'/studentMng.php';?>">Student Management</a>
                     </li>
     
                 </ul>

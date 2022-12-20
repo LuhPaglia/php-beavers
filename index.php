@@ -12,19 +12,19 @@
     <form action="<?php echo $baseName.'./server/login.php'; ?>" method="post">
       <h4>Select Role</h4>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="role" id="admin">
+        <input class="form-check-input" type="radio" name="role" id="admin" value="admin">
         <label class="form-check-label" for="admin">
           Admin
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="role" id="teacher">
+        <input class="form-check-input" type="radio" name="role" id="teacher" value="teacher">
         <label class="form-check-label" for="teacher">
           Teacher
         </label>
       </div>
       <div class="form-check">
-          <input class="form-check-input" type="radio" name="role" id="student">
+          <input class="form-check-input" type="radio" name="role" id="student" value="student">
           <label class="form-check-label" for="student">
               Student
           </label>
