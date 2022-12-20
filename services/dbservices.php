@@ -3,8 +3,8 @@ class dbServices{
     private $hostName;
     private $userName;
     private $password;
-    private $dbName;
-    private $dbcon;
+    private $dbName; 
+    public $dbcon; // $dbcon should be public
     function __construct($hostName,$userName,$password,$dbName)
     {
         $this->hostName = $hostName;

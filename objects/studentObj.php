@@ -19,7 +19,7 @@ class studentObj{
         $this->birthday = $birthday;
     }
     function toInsert(){
-        return [$this->student_id, $this->user_name,$this->password,$this->email,$this->course_id,$this->teacher_id,$this->address,$this->birthday];
+        return [$this->student_id, "'$this->user_name'","'$this->password'","'$this->email'",$this->course_id,$this->teacher_id,"'$this->address'","'$this->birthday'"];
     }
 }
 ?>
