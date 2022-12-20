@@ -5,6 +5,7 @@ class dbServices{
     private $password;
     private $dbName;
     public $dbcon;
+    
     function __construct($hostName,$userName,$password,$dbName)
     {
         $this->hostName = $hostName;

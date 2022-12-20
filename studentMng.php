@@ -8,7 +8,6 @@
   }else{
     echo "DB connection problem";
   }
-
 ?>
 
 <!-- Alert -->
@@ -46,7 +45,9 @@
                 <th>fullname</th>
                 <th>password</th>
                 <th>course_id</th>
+                <th>course_name</th>
                 <th>teacher_id</th>
+                <!-- <th>teacher_name</th> -->
                 <th>address</th>
                 <th>birthday</th>
                 <th>edit</th>
@@ -55,10 +56,16 @@
         <tbody>
 
         <?php
-
           // if(teacher login) { changing query}
-          $sqlCommand = "SELECT * FROM student_tb";
+
+          // $sqlCommand = "SELECT * FROM student_tb";
+          
+          $sqlCommand = "SELECT `student_id`, `email`, `user_name`, `password`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb CROSS JOIN course_tb WHERE student_tb.course_id=course_tb.course_id ORDER BY `student_id`;";
+
+          // $sqlCommand = "SELECT `student_id`, a.email, a.user_name, a.password, a.course_id, a.course_name, a.teacher_id, teacher_tb.user_name, a.address, a.birthday FROM (SELECT `student_id`, `email`, `user_name`, `password`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb CROSS JOIN course_tb WHERE student_tb.course_id=course_tb.course_id ) AS a CROSS JOIN teacher_tb WHERE a.teacher_id=teacher_tb.teacher_id ORDER BY `student_id`;";
+
           $result = $dbSrv->dbcon->query($sqlCommand);
+
 
           if ($result->num_rows > 0) {
             // output data of each row
@@ -69,7 +76,8 @@
               foreach ($row as $value) {
                 echo "<td>$value</td>";
               }
-              echo "<td><a class='btn btn-primary' href=".$_SERVER['PHP_SELF']."?student_id="." role='button'>Edit</a></td>";
+              echo "<td><a class='btn btn-primary' href=".$_SERVER['PHP_SELF']."?student_id=".$row['student_id']." role='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</a></td>";
+              // echo "<td><button class='btn btn-primary' data-id=".$row['student_id']." type='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button></td>";
               echo "</tr>";
             }
 
@@ -86,18 +94,16 @@
   <div class="modal-dialog" style="max-width: 800px;">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <?php
+            if (isset($_GET['student_id'])) echo "Student Edit";
+            else echo "Add New Student";
+          ?>
+        </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-
       <form action="./studentAdd.php" method="POST">
-        <div class="form-floating mb-3">
-            <input
-              type="number"
-              class="form-control" name="student_id" id="student_id" placeholder="student_id">
-            <label for="student_id">student_id</label>
-          </div>
+        <div class="modal-body">
           <div class="form-floating mb-3">
             <input
               type="text"
@@ -140,13 +146,12 @@
               class="form-control" name="birthday" id="birthday" placeholder="birthday">
             <label for="birthday">birthday</label>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <input type="submit" class="btn btn-primary" value="Save changes">
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Save changes">
+          </div>
       </form>
-        
       
     </div>
   </div>
@@ -156,9 +161,11 @@
 
 
 <?php 
-    if($_SERVER['REQUEST_METHOD']=="GET") {
+    
+  if($_SERVER['REQUEST_METHOD']=="GET") {
 
-        
-    }
+      
+  }
 
+  $dbSrv->closeDb();
 ?>
