@@ -1,7 +1,7 @@
 <?php include './pages/header.php'; ?>
 <main>
     <div style="display:flex; justify-content:space-between; padding:3% 0;">
-        <h1>Teacher Management</h1>
+        <h1>Grade Management</h1>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Add
