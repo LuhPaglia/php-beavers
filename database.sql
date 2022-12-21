@@ -14,7 +14,7 @@ CREATE TABLE `beavers`.`admin_tb` (
 CREATE TABLE `beavers`.`course_tb` (
   `course_id` INT NOT NULL AUTO_INCREMENT,
   `course_name` VARCHAR(200) NOT NULL,
-  `description` VARCHAR(45) NULL,
+  `description` VARCHAR(255) NULL,
   PRIMARY KEY (`course_id`),
   UNIQUE INDEX `course_id_UNIQUE` (`course_id` ASC)  );
 
@@ -43,7 +43,7 @@ CREATE TABLE `beavers`.`student_tb` (
   `course_id` INT NOT NULL,
   `teacher_id` INT NOT NULL,
   `address` VARCHAR(255) NULL,
-  `birthday` VARCHAR(45) NULL,
+  `birthday` date DEFAULT NULL,
   PRIMARY KEY (`student_id`),
   UNIQUE INDEX `student_id_UNIQUE` (`student_id` ASC)  ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)  ,
