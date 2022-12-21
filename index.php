@@ -4,6 +4,23 @@
 
 <style><?php include './css/styles.css'; ?></style>
 
+<!-- Alert -->
+<div class="alert alert-danger
+ alert-dismissible fade show" role="alert" style="display: <?php
+    if(isset($_GET['msg'])) echo "block";
+    else echo "none";
+?> ;">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <strong>Alert </strong>Username / Password not found!
+</div>
+
+<script>
+  var alertList = document.querySelectorAll('.alert');
+  alertList.forEach(function (alert) {
+    new bootstrap.Alert(alert)
+  })
+</script>
+
 <h1 id="h1login">Login page</h1>
 
 <section id="login">

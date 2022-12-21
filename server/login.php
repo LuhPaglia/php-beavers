@@ -9,6 +9,7 @@
         $role = $_POST['role'];
         $email = $_POST['email'];
         $pass = $_POST['password'];
+        
 
         $dbSrv = new dbServices($hostName,$userName,$password,$dbName);
         if($dbcon = $dbSrv->dbConnect()){
@@ -46,7 +47,7 @@
 
         } else "DB connection problem";
 
-        header("Location: ".$baseName.'index.php?msg=1');
+        header("Location: ".$baseName.'index.php?msg=2');
         exit();
 
     }
