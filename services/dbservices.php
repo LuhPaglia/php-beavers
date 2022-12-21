@@ -42,28 +42,5 @@ class dbServices{
         return $result;
     }
 
-    function select($tbName,$fieldArray=null,$conditionArray=null,$operator=null) {
-        if($fieldArray!=null) {
-            $fields = implode(',',$fieldArray);
-        } else {
-            $fields = "*";
-        }
-        if($conditionArray!=null) {
-            $where = "WHERE ";
-            foreach($conditionArray as $key=>$value) {
-                $where .= "$key=$value";
-                if($key!=array_key_last($conditionArray)) {
-                    $where .= " $operator ";
-                }
-            }
-        } else {
-            $where = '';
-        }
-
-        $selectCmd = "SELECT $fields FROM $tbName $where";
-        $result = $this->dbcon->query($selectCmd);
-        return $result;
-    }
-
 }
 ?>
