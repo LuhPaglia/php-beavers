@@ -121,12 +121,30 @@
               class="form-control" name="password" id="password" placeholder="password" required>
             <label for="password">password</label>
           </div>
-          <div class="form-floating mb-3">
+
+          <div class="mb-3">
+            <label for="" class="form-label">Course</label>
+            <select class="form-select form-select-lg" name="course_id" required>
+              <option selected disabled value="">Select one</option>
+              <?php
+                $sqlCommand = "SELECT * FROM course_tb";
+                $result = $dbSrv->dbcon->query($sqlCommand);
+                if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                    echo "<option value=".$row['course_id']."> ID : ".$row['course_id']." / ".$row['course_name']."</option>";
+                  }
+                }
+              ?>
+            </select>
+          </div>
+
+          <!-- <div class="form-floating mb-3">
             <input
               type="number"
               class="form-control" name="course_id" id="course_id" placeholder="course_id" required>
             <label for="course_id">course_id</label>
-          </div>
+          </div> -->
+
           <div class="form-floating mb-3">
             <input
               type="number"
