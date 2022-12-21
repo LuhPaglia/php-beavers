@@ -17,9 +17,9 @@
             if($role == "admin"){
                 $select = "SELECT * FROM admin_tb WHERE email='$email'";
                 $result = $dbcon->query($select);
-                if($user = $result->fetch_assoc() != null) {
+                if(($user = $result->fetch_assoc()) != null) {
                     if(password_verify($pass,$user['password'])){
-                        $admin = new adminObj($row['admin_id'],$row['user_name'],$row['password'],$row['email'],$row['profile_url'],$row['birthday'],$row['address']);
+                        $admin = new adminObj($user['admin_id'],$user['user_name'],$user['password'],$user['email'],$user['profile_url'],$user['birthday'],$user['address']);
                         $_SESSION['logUser'] = $admin;
                         $_SESSION['role'] = "admin";
                         $dbcon->close();
@@ -31,9 +31,9 @@
             else if($role == "teacher"){
                 $select = "SELECT * FROM teacher_tb WHERE email='$email'";
                 $result = $dbcon->query($select);
-                if($user = $result->fetch_assoc() != null) {
+                if(($user = $result->fetch_assoc()) != null) {
                     if(password_verify($pass,$user['password'])){
-                        $teacher = new teacherObj($row['teacher_id'],$row['user_name'],$row['password'],$row['email'],$row['course_id'],$row['salary'],$row['birthday'],$row['address']);
+                        $teacher = new teacherObj($user['teacher_id'],$user['user_name'],$user['password'],$user['email'],$user['course_id'],$user['salary'],$user['birthday'],$user['address']);
                         $_SESSION['logUser'] = $teacher;
                         $_SESSION['role'] = "teacher";
                         $dbcon->close();
@@ -45,13 +45,13 @@
             else if($role == "student"){
                 $select = "SELECT * FROM student_tb WHERE email='$email'";
                 $result = $dbcon->query($select);
-                if($user = $result->fetch_assoc() != null) {
+                if(($user = $result->fetch_assoc()) != null) {
                     if(password_verify($pass,$user['password'])){
-                        $student = new studentObj($row['student_id'],$row['user_name'],$row['password'],$row['email'],$row['course_id'],$row['teacher_id'],$row['birthday'],$row['address']);
+                        $student = new studentObj($user['student_id'],$user['user_name'],$user['password'],$user['email'],$user['course_id'],$user['teacher_id'],$user['birthday'],$user['address']);
                         $_SESSION['logUser'] = $student;
                         $_SESSION['role'] = "student";
                         $dbcon->close();
-                        header("Location: ".$baseName.'gradeMngPage.php');
+                        header("Location: ".$baseName.'studentPage.php');
                         exit();
                     }
                 }
