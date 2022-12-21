@@ -31,13 +31,13 @@
 <div style="display:flex; justify-content:space-between; padding:3% 0;">
     <h1>Student Management</h1>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Add
     </button>
 </div>
 
 <div class="table-responsive">
-    <table class="table table-primary">
+    <table class="table table-success">
         <thead>
             <tr>
                 <th>student_id</th>
@@ -60,12 +60,11 @@
 
           // $sqlCommand = "SELECT * FROM student_tb";
           
-          $sqlCommand = "SELECT `student_id`, `email`, `user_name`, `password`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb CROSS JOIN course_tb WHERE student_tb.course_id=course_tb.course_id ORDER BY `student_id`;";
+          $sqlCommand = "SELECT `student_id`, `email`, `user_name`, `password`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb INNER JOIN course_tb ON student_tb.course_id=course_tb.course_id ORDER BY `student_id`;";
 
-          // $sqlCommand = "SELECT `student_id`, a.email, a.user_name, a.password, a.course_id, a.course_name, a.teacher_id, teacher_tb.user_name, a.address, a.birthday FROM (SELECT `student_id`, `email`, `user_name`, `password`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb CROSS JOIN course_tb WHERE student_tb.course_id=course_tb.course_id ) AS a CROSS JOIN teacher_tb WHERE a.teacher_id=teacher_tb.teacher_id ORDER BY `student_id`;";
+          // $sqlCommand = "SELECT `student_id`, student_tb.email, student_tb.user_name, student_tb.password, student_tb.course_id, course_tb.course_name, teacher_tb.teacher_id, teacher_tb.user_name, student_tb.address, student_tb.birthday FROM (student_tb INNER JOIN course_tb ON student_tb.course_id=course_tb.course_id) INNER JOIN teacher_tb ON course_tb.course_id=teacher_tb.course_id ORDER BY `student_id`;";
 
           $result = $dbSrv->dbcon->query($sqlCommand);
-
 
           if ($result->num_rows > 0) {
             // output data of each row
@@ -76,7 +75,7 @@
               foreach ($row as $value) {
                 echo "<td>$value</td>";
               }
-              echo "<td><a class='btn btn-primary' href=".$_SERVER['PHP_SELF']."?student_id=".$row['student_id']." role='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</a></td>";
+              echo "<td><a class='btn btn-success' href=".$_SERVER['PHP_SELF']."?student_id=".$row['student_id']." role='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</a></td>";
               // echo "<td><button class='btn btn-primary' data-id=".$row['student_id']." type='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button></td>";
               echo "</tr>";
             }
@@ -130,7 +129,7 @@
           </div>
           <div class="form-floating mb-3">
             <input
-              type="text"
+              type="number"
               class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id" required>
             <label for="teacher_id">teacher_id</label>
           </div>
@@ -149,7 +148,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-primary" value="Save changes">
+            <input type="submit" class="btn btn-success" value="Save">
           </div>
       </form>
       

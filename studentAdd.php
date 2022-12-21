@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 
     $email = $_POST['email'];
     $user_name = $_POST['user_name'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'],PASSWORD_DEFAULT) ;
     $course_id = $_POST['course_id'];
     $teacher_id = $_POST['teacher_id'];
     $address = $_POST['address'];
