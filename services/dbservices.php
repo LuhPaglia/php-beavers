@@ -1,4 +1,4 @@
-<?php
+<?php include './data/config.php';
 class dbServices{
     private $hostName;
     private $userName;

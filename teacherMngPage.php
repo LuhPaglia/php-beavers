@@ -100,18 +100,12 @@
   <div class="modal-dialog" style="max-width: 800px;">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Modal</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         
       <form action="./teacherAdd.php" method="POST">
-      <div class="form-floating mb-3">
-          <input
-            type="number"
-            class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id">
-          <label for="teacher_id">teacher_id</label>
-        </div>
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -174,53 +168,47 @@
   <div class="modal-dialog" style="max-width: 800px;">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Modal</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         
-      <form action="./teacherAdd.php" method="POST">
-      <div class="form-floating mb-3">
-          <input
-            type="number"
-            class="form-control" name="teacher_id" id="teacher_id" placeholder="teacher_id">
-          <label for="teacher_id"><?php echo $teachers['teacher_id']['teacher_id']?></label>
-        </div>
+      <form action="./teacherEdit.php" method="POST">
         <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control" name="user_name" id="user_name" placeholder="user_name">
-          <label for="user_name"><?php echo $teachers['teacher_id']['user_name']?></label>
+          <label for="user_name">user_name</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="password"
             class="form-control" name="password" id="password" placeholder="password">
-          <label for="password"><?php echo $teachers['teacher_id']['password']?></label>
+          <label for="password">password</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="email"
             class="form-control" name="email" id="email" placeholder="email">
-          <label for="email"><?php echo $teachers['teacher_id']['email']?></label>
+          <label for="email">email</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="number"
             class="form-control" name="course_id" id="course_id" placeholder="course_id">
-          <label for="course_id"><?php echo $teachers['teacher_id']['course_id']?></label>
+          <label for="course_id">course_id</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="number"
             class="form-control" name="salary" id="salary" placeholder="salary">
-          <label for="salary"><?php echo $teachers['teacher_id']['salary']?></label>
+          <label for="salary">salary</label>
         </div>
         <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control" name="address" id="address" placeholder="address">
-          <label for="address"><?php echo $teachers['teacher_id']['address']?></label>
+          <label for="address">address</label>
         </div>
         <div class="form-floating mb-3">
           <input
@@ -238,7 +226,7 @@
 
     </div>
   </div>
-</div>
+</div> 
 
 
 
