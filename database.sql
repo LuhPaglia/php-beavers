@@ -43,7 +43,7 @@ CREATE TABLE `beavers`.`student_tb` (
   `course_id` INT NOT NULL,
   `teacher_id` INT NOT NULL,
   `address` VARCHAR(255) NULL,
-  `birthday` VARCHAR(45) NULL,
+  `birthday` date DEFAULT NULL,
   PRIMARY KEY (`student_id`),
   UNIQUE INDEX `student_id_UNIQUE` (`student_id` ASC)  ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)  ,
