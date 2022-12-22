@@ -44,7 +44,7 @@
                 <th>student_id</th>
                 <th>email</th>
                 <th>fullname</th>
-                <th>password</th>
+                <!-- <th>password</th> -->
                 <th>course_id</th>
                 <th>course_name</th>
                 <th>teacher_id</th>
@@ -61,7 +61,7 @@
 
           // $sqlCommand = "SELECT * FROM student_tb";
           
-          $sqlCommand = "SELECT `student_id`, `email`, `user_name`, `password`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb INNER JOIN course_tb ON student_tb.course_id=course_tb.course_id ORDER BY `student_id`;";
+          $sqlCommand = "SELECT `student_id`, `email`, `user_name`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb INNER JOIN course_tb ON student_tb.course_id=course_tb.course_id ORDER BY `student_id`;";
 
           // $sqlCommand = "SELECT `student_id`, student_tb.email, student_tb.user_name, student_tb.password, student_tb.course_id, course_tb.course_name, teacher_tb.teacher_id, teacher_tb.user_name, student_tb.address, student_tb.birthday FROM (student_tb INNER JOIN course_tb ON student_tb.course_id=course_tb.course_id) INNER JOIN teacher_tb ON course_tb.course_id=teacher_tb.course_id ORDER BY `student_id`;";
 
