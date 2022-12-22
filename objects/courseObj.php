@@ -9,7 +9,7 @@ class courseObj{
         $this->description = $description;
     }
     function toInsert(){
-        return [$this->course_name, $this->description];
+        return ["'$this->course_name'", "'$this->description'"];
     }
 }
 ?>
