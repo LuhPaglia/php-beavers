@@ -1,11 +1,11 @@
-<?php
+<?php include './data/config.php';
 class dbServices{
     private $hostName;
     private $userName;
     private $password;
-    private $dbName;
-    public $dbcon;
-    
+    private $dbName; 
+    public $dbcon; // $dbcon should be public
+
     function __construct($hostName,$userName,$password,$dbName)
     {
         $this->hostName = $hostName;

@@ -31,6 +31,7 @@
 <div style="display:flex; justify-content:space-between; padding:3% 0;">
     <h1>Student Management</h1>
     <!-- Button trigger modal -->
+
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Add
     </button>
@@ -93,6 +94,7 @@
   <div class="modal-dialog" style="max-width: 800px;">
     <div class="modal-content">
       <div class="modal-header">
+
         <h1 class="modal-title fs-5" id="exampleModalLabel">
           <?php
             if (isset($_GET['student_id'])) echo "Student Edit";
@@ -121,7 +123,6 @@
               class="form-control" name="password" id="password" placeholder="password" required>
             <label for="password">password</label>
           </div>
-
           <div class="mb-3">
             <label for="" class="form-label">Course</label>
             <select class="form-select form-select-lg" name="course_id" required>
