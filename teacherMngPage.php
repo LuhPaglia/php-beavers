@@ -39,13 +39,13 @@
     <div style="display:flex; justify-content:space-between; padding:3% 0;">
         <h1>Teacher Management</h1>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
           Add
         </button>
     </div>
 
     <div class="table-responsive">
-        <table class="table table-primary">
+        <table class="table table-success">
             <thead>
                 <tr>
                     <th>teacher_id</th>
@@ -82,8 +82,8 @@
                         echo "<td>$value</td>";
                       }
                     } 
-                    // echo "<td><a class='btn btn-primary' href=".$_SERVER['PHP_SELF']."?teacher_id="." role='button'>Edit</a></td>";
-                    echo "<td><button class='btn btn-primary' type='button' data-bs-toggle='modal' data-bs-target='#editModal' href=".$_SERVER['PHP_SELF']."?teacher_id="." role='button'>Edit</button></td>";
+                    // echo "<td><a class='btn btn-success' href=".$_SERVER['PHP_SELF']."?teacher_id="." role='button'>Edit</a></td>";
+                    echo "<td><button class='btn btn-success' type='button' data-bs-toggle='modal' data-bs-target='#editModal' href=".$_SERVER['PHP_SELF']."?teacher_id="." role='button'>Edit</button></td>";
                     echo "</tr>";
                   }
                 
@@ -151,8 +151,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
-        <input type="submit" class="btn btn-primary" value="Save changes">
+        <!-- <button type="submit" class="btn btn-success">Save changes</button> -->
+        <input type="submit" class="btn btn-success" value="Save changes">
       </div>
       </form>
 
@@ -219,8 +219,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
-        <input type="submit" class="btn btn-primary" value="Save changes">
+        <!-- <button type="submit" class="btn btn-success">Save changes</button> -->
+        <input type="submit" class="btn btn-success" value="Save changes">
       </div>
       </form>
 
