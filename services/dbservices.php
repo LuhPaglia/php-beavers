@@ -4,7 +4,8 @@ class dbServices{
     private $userName;
     private $password;
     private $dbName;
-    private $dbcon;
+    public $dbcon;
+    
     function __construct($hostName,$userName,$password,$dbName)
     {
         $this->hostName = $hostName;
@@ -41,5 +42,6 @@ class dbServices{
         $result = $this->dbcon->query($sqlCommand);
         return $result;
     }
+
 }
 ?>
