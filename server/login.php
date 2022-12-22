@@ -37,7 +37,7 @@
                         $_SESSION['logUser'] = $teacher;
                         $_SESSION['role'] = "teacher";
                         $dbcon->close();
-                        header("Location: ".$baseName.'teacherMngPage.php');
+                        header("Location: ".$baseName.'studentMng.php');
                         exit();
                     }
                 }
