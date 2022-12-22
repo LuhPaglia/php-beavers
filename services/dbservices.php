@@ -5,6 +5,7 @@ class dbServices{
     private $password;
     private $dbName; 
     public $dbcon; // $dbcon should be public
+
     function __construct($hostName,$userName,$password,$dbName)
     {
         $this->hostName = $hostName;
@@ -31,6 +32,7 @@ class dbServices{
         }
         $values = implode(',',$valuesArray);
         $insertCmd = "INSERT INTO $tbName $fields VALUES ($values)";
+        echo $insertCmd;
         if($this->dbcon->query($insertCmd) === TRUE){
             return true;
         }
@@ -41,5 +43,6 @@ class dbServices{
         $result = $this->dbcon->query($sqlCommand);
         return $result;
     }
+
 }
 ?>

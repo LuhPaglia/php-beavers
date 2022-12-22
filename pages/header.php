@@ -16,14 +16,48 @@
                 aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="" aria-current="page">Register</a>
+                        <a class="nav-link" style="display: <?php 
+                        if(isset($_SESSION['logUser'])) echo "none";
+                        else echo "block";
+                         ?> ;" href="<?php echo $baseName.'';?>">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="display: <?php 
+                        if(isset($_SESSION['logUser'])) echo "none";
+                        else echo "block";
+                         ?> ;" href="<?php echo $baseName.'index.php';?>">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" style="display: <?php 
                         if(isset($_SESSION['logUser'])) echo "block";
                         else echo "none";
-                         ?> ;" href="<?php echo $baseName.'logout.php';?>">Logout</a>
+                         ?> ;" href="<?php echo $baseName.'server/logout.php';?>">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="display: <?php 
+                        if(isset($_SESSION['role']) && $_SESSION['role']== "admin") echo "block";
+                        else echo "none";
+                         ?> ;" href="<?php echo $baseName.'adminPage.php';?>">Admin Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="display: <?php 
+                        if(isset($_SESSION['role']) && $_SESSION['role']== "admin") echo "block";
+                        else echo "none";
+                         ?> ;" href="<?php echo $baseName.'teacherMngPage.php';?>">Teacher Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="display: <?php 
+                        if(isset($_SESSION['role']) && $_SESSION['role']!= "student") echo "block";
+                        else echo "none";
+                         ?> ;" href="<?php echo $baseName.'studentMng.php';?>">Student Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="display: <?php 
+                        if(isset($_SESSION['role']) && $_SESSION['role']!= "student") echo "block";
+                        else echo "none";
+                         ?> ;" href="<?php echo $baseName.'gradeMngPage.php';?>">Grade Management</a>
                     </li>
     
                 </ul>
