@@ -17,7 +17,7 @@ class adminObj{
         $this->address = $address;
     }
     function toInsert(){
-        return [$this->user_name, $this->password, $this->password, $this->email, $this->profile_url, $this->birthday, $this->address];
+        return ["'$this->user_name'", "'$this->password'", "'$this->email'", "'$this->profile_url'", "'$this->birthday'", "'$this->address'"];
     }
 }
 ?>

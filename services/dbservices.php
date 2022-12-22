@@ -32,6 +32,7 @@ class dbServices{
         }
         $values = implode(',',$valuesArray);
         $insertCmd = "INSERT INTO $tbName $fields VALUES ($values)";
+        echo $insertCmd;
         if($this->dbcon->query($insertCmd) === TRUE){
             return true;
         }
