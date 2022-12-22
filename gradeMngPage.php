@@ -40,10 +40,55 @@
                     <td>
                         <button class="btn btn-primary">Edit</button>
                     </td>
+                    
                 </tr>
-            </tbody>
+                <?php
+                  
+                
+                $conn = new mysqli($hostName,$userName,$password,$dbName);
+                $sql = "SELECT * FROM grade_tb";
+                $result = $conn->query($sql);
+                // foreach($result as $val){
+                //   print_r($val);
+                // }
+
+                if ($result->num_rows > 0) {
+                  foreach($result as $row){
+                    echo "<tr><td>" 
+                        . $row["grade_id"] . "</td><td>" 
+                        . $row["classwork"] . "</td><td>" 
+                        . $row["student_id"] . "</td><td>" 
+                        . $row["teacher_id"] . "</td><td>" 
+                        . $row["course_id"] . "</td><td>" 
+                        . $row["mark"] . "</td><td>" 
+                        . $row["mark_date"] . "</td><td>" 
+                        . $row["feedback"] . "</td><td> "
+                        .'<button class="btn btn-primary">Edit</button>'. 
+                        "</td></tr>";
+                  }
+                    // while ($rows = $result-> fetch_assoc()) {
+                    //     echo "<tr><td>" 
+                    //     . $row["grade_id"] . "</td><td>" 
+                    //     . $row["classwork"] . "</td><td>" 
+                    //     . $row["student_id"] . "</td><td>" 
+                    //     . $row["teacher_id"] . "</td><td>" 
+                    //     . $row["course_id"] . "</td><td>" 
+                    //     . $row["mark"] . "</td><td>" 
+                    //     . $row["mark_date"] . "</td><td>" 
+                    //     . $row["feedback"] . "</td><td> "
+                    //     .'<button class="btn btn-primary">Edit</button>'. 
+                    //     "</td></tr>";
+                    // }
+                } else {
+                    echo "<h2>No Results</h2>";
+                }
+                $conn->close();
+              ?>          
+              </tbody>
         </table>
     </div>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -54,13 +99,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
-      <div class="form-floating mb-3">
-          <input
-            type="number"
-            class="form-control" name="grade_id" id="grade_id" placeholder="grade_id">
-          <label for="grade_id">grade_id</label>
-        </div>
+        <form action="<?php echo $baseName?>add.php" method="POST">
+      
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -91,12 +131,7 @@
             class="form-control" name="mark" id="mark" placeholder="mark">
           <label for="mark">mark</label>
         </div>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control" name="address" id="address" placeholder="address">
-          <label for="address">address</label>
-        </div>
+      
         <div class="form-floating mb-3">
           <input
             type="date"
@@ -111,8 +146,9 @@
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
+</form>
     </div>
   </div>
 </div>
