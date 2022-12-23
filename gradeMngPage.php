@@ -3,13 +3,13 @@
     <div style="display:flex; justify-content:space-between; padding:3% 0;">
         <h1>Grade Management</h1>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Add
         </button>
     </div>
 
     <div class="table-responsive">
-        <table class="table table-primary">
+        <table class="table table-success">
             <thead>
                 <tr>
                     <th>grade_id</th>
@@ -38,7 +38,7 @@
                         </p>
                     </td>
                     <td>
-                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-success">Edit</button>
                     </td>
                     
                 </tr>
