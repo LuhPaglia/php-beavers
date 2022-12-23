@@ -19,7 +19,7 @@ class gradeObj{
         $this->feedback = $feedback;
     }
     function toInsert(){
-        return [$this->grade_id, $this->classwork,$this->student_id,$this->teacher_id,$this->course_id,$this->mark,$this->mark_date,$this->feedback];
+        return ["'$this->classwork'",$this->student_id,$this->teacher_id,$this->course_id,$this->mark,"'$this->mark_date'","'$this->feedback'"];
     }
 }
 ?>

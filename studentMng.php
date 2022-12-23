@@ -77,7 +77,7 @@
                 echo "<td>$value</td>";
               }
               echo "<td><a class='btn btn-success' href=".$_SERVER['PHP_SELF']."?student_id=".$row['student_id']." role='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</a></td>";
-              // echo "<td><button class='btn btn-primary' data-id=".$row['student_id']." type='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button></td>";
+              // echo "<td><button class='btn btn-success' data-id=".$row['student_id']." type='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button></td>";
               echo "</tr>";
             }
 
@@ -107,7 +107,7 @@
         <div class="modal-body">
           <div class="form-floating mb-3">
             <input
-              type="text"
+              type="email"
               class="form-control" name="email" id="email" placeholder="email" required>
             <label for="email">email</label>
           </div>

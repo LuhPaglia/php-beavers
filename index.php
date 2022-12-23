@@ -59,7 +59,7 @@
           class="form-control" name="password" id="password" placeholder="password" required>
           <label for="password">password</label>
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-success">Login</button>
       <p>Not our member?
           <a href="./register.php">Register</a>
       </p>
