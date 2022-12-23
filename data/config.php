@@ -1,8 +1,8 @@
 <?php
-    $baseName = "http://localhost/PHP/PHP-BEAVERS/";
-    $hostName = "localhost";
+    $baseName = "http://localhost/PHP/php-beavers/";
+    $hostName = "localhost:3306";
     $userName = "root";
-    $password = "";
+    $password = "root1234";
     $dbName = "beavers";  
     session_start();
 ?>
