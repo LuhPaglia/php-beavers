@@ -50,7 +50,6 @@
                 <tr>
                     <th>teacher_id</th>
                     <th>user_name</th>
-                    <th>password</th>
                     <th>email</th>
                     <th>course_id</th>
                     <th>salary</th>
@@ -79,7 +78,9 @@
                           echo "<td>$$value</td>";
                         }
                       } else {
-                        echo "<td>$value</td>";
+                        if($key!="password"){
+                          echo "<td>$value</td>";
+                        }
                       }
                     } 
                     // echo "<td><a class='btn btn-success' href=".$_SERVER['PHP_SELF']."?teacher_id="." role='button'>Edit</a></td>";
