@@ -76,7 +76,7 @@
 
               foreach ($row as $key => $value) {
                 if ($key=='profile_url') {
-                  echo "<td><figure><img src='.$value.' alt='profile'></figure></td>";
+                  echo "<td><figure><img src='$value' alt='profile' style='width: 80px; height: 80px; border-radius: 50px'></figure></td>";
                   continue;
                 }
                 echo "<td>$value</td>";
@@ -111,7 +111,7 @@
         </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="<?php echo $baseName?>studentAdd.php" method="POST">
+      <form action="<?php echo $baseName?>studentAdd.php" method="POST" enctype="multipart/form-data">
         <div class="modal-body">
           <div class="form-floating mb-3">
             <input
@@ -131,6 +131,11 @@
               class="form-control" name="password" id="password" placeholder="password" required>
             <label for="password">password</label>
           </div>
+          <div class="mb-3">
+              <label for="" class="form-label">Choose file</label>
+              <input type="file" class="form-control" name="profile_pic" id="" placeholder="Select profile" aria-describedby="fileHelpId">
+              <div id="fileHelpId" class="form-text">Select profile</div>
+            </div>
           <div class="mb-3">
             <label for="" class="form-label">Course</label>
             <select class="form-select form-select-lg" name="course_id" required>

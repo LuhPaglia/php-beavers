@@ -16,7 +16,7 @@ class studentObj{
         $this->email = $email;
         $this->course_id = $course_id;
         $this->teacher_id = $teacher_id;
-        $this->$profile_url = $profile_url;
+        $this->profile_url = $profile_url;
         $this->address = $address;
         $this->birthday = $birthday;
     }
