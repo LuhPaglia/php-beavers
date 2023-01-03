@@ -3,7 +3,7 @@
     $hostName = "localhost";
     $userName = "root";
     $password = "";
-    $dbName = "beavers";  
+   $dbName = "beavers";  
     if(!isset($_SESSION)) 
     { 
         session_start(); 
