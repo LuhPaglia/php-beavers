@@ -4,7 +4,7 @@
 
   $dbSrv = new dbServices($hostName,$userName,$password,$dbName);
 
-  if($dbSrv->dbConnect()){
+  if($dbcon = $dbSrv->dbConnect()){
   }else{
     echo "DB connection problem";
   }
@@ -61,8 +61,8 @@
             <tbody>
               <?php
                 // if(teacher login) { changing query}
-                $sqlCommand = "SELECT * FROM teacher_tb";
-                $result = $dbSrv->dbcon->query($sqlCommand);
+                $sqlCommand = "SELECT `teacher_id`, `user_name`, `password`, `email`, `course_id`, `salary`, `address`, `birthday` FROM `teacher_tb`WHERE teacher_tb.status = 1";
+                $result = $dbcon->query($sqlCommand);
 
                 if ($result->num_rows > 0) {
                   // output data of each row
@@ -242,4 +242,5 @@
         
     }
 
+    $dbSrv->closeDb();
 ?>

@@ -1,4 +1,12 @@
-<?php include './pages/header.php'; ?>
+<?php include './pages/header.php';
+ include './services/dbservices.php';
+ $dbSrv = new dbServices($hostName,$userName,$password,$dbName);
+ if($dbcon = $dbSrv->dbConnect()){
+ }else{
+   echo "DB connection problem";
+ }
+ ?>
+
 <main>
     <div style="display:flex; justify-content:space-between; padding:3% 0;">
         <h1>Grade Management</h1>
@@ -44,10 +52,8 @@
                 </tr>
                 <?php
                   
-                
-                $conn = new mysqli($hostName,$userName,$password,$dbName);
                 $sql = "SELECT * FROM grade_tb";
-                $result = $conn->query($sql);
+                $result = $dbcon->query($sql);
                 // foreach($result as $val){
                 //   print_r($val);
                 // }
@@ -82,7 +88,7 @@
                 } else {
                     echo "<h2>No Results</h2>";
                 }
-                $conn->close();
+                $dbSrv->closeDb();
               ?>          
               </tbody>
         </table>

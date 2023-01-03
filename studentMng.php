@@ -4,7 +4,7 @@
 
   $dbSrv = new dbServices($hostName,$userName,$password,$dbName);
 
-  if($dbSrv->dbConnect()){
+  if($dbcon = $dbSrv->dbConnect()){
   }else{
     echo "DB connection problem";
   }
@@ -41,6 +41,7 @@
     <table class="table table-success">
         <thead>
             <tr>
+                <th>profile_pic</th>
                 <th>student_id</th>
                 <th>email</th>
                 <th>fullname</th>
@@ -61,11 +62,11 @@
 
           // $sqlCommand = "SELECT * FROM student_tb";
           
-          $sqlCommand = "SELECT `student_id`, `email`, `user_name`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb INNER JOIN course_tb ON student_tb.course_id=course_tb.course_id ORDER BY `student_id`;";
+          $sqlCommand = "SELECT `profile_url`,`student_id`, `email`, `user_name`, student_tb.course_id, course_tb.course_name, `teacher_id`, `address`, `birthday` FROM student_tb INNER JOIN course_tb ON student_tb.course_id=course_tb.course_id WHERE student_tb.status = 1 ORDER BY `student_id`;";
 
           // $sqlCommand = "SELECT `student_id`, student_tb.email, student_tb.user_name, student_tb.password, student_tb.course_id, course_tb.course_name, teacher_tb.teacher_id, teacher_tb.user_name, student_tb.address, student_tb.birthday FROM (student_tb INNER JOIN course_tb ON student_tb.course_id=course_tb.course_id) INNER JOIN teacher_tb ON course_tb.course_id=teacher_tb.course_id ORDER BY `student_id`;";
 
-          $result = $dbSrv->dbcon->query($sqlCommand);
+          $result = $dbcon->query($sqlCommand);
 
           if ($result->num_rows > 0) {
             // output data of each row
@@ -73,7 +74,11 @@
             while($row = $result->fetch_assoc()) {
               echo "<tr>";
 
-              foreach ($row as $value) {
+              foreach ($row as $key => $value) {
+                if ($key=='profile_url') {
+                  echo "<td><figure><img src='.$value.' alt='profile'></figure></td>";
+                  continue;
+                }
                 echo "<td>$value</td>";
               }
               echo "<td><a class='btn btn-success' href=".$_SERVER['PHP_SELF']."?student_id=".$row['student_id']." role='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</a></td>";
@@ -87,6 +92,9 @@
         ?>
         </tbody>
     </table>
+
+    
+
 </div>
 
 <!-- Modal -->
@@ -129,7 +137,7 @@
               <option selected disabled value="">Select one</option>
               <?php
                 $sqlCommand = "SELECT * FROM course_tb";
-                $result = $dbSrv->dbcon->query($sqlCommand);
+                $result = $dbcon->query($sqlCommand);
                 if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
                     echo "<option value=".$row['course_id']."> ID : ".$row['course_id']." / ".$row['course_name']."</option>";

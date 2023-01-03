@@ -12,12 +12,13 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
     $password = password_hash($_POST['password'],PASSWORD_DEFAULT) ;
     $course_id = $_POST['course_id'];
     $teacher_id = $_POST['teacher_id'];
+    $profile_url = $_POST['profile_url'];
     $address = $_POST['address'];
     $birthday = $_POST['birthday'];
 
-    $newStu = new studentObj(null,$user_name,$password,$email,$course_id,$teacher_id,$address,$birthday);
+    $newStu = new studentObj(null,$user_name,$password,$email,$course_id,$teacher_id,$profile_url,$address,$birthday);
     $valuesArray = $newStu->toInsert();
-    $fieldArray = ['user_name','password','email','course_id','teacher_id','address','birthday'];
+    $fieldArray = ['user_name','password','email','course_id','teacher_id','profile_url','address','birthday'];
 
     if($dbSrv->dbConnect()){
         if($dbSrv->insert('student_tb',$valuesArray,$fieldArray)){

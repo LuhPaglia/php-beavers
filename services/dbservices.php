@@ -4,7 +4,7 @@ class dbServices{
     private $userName;
     private $password;
     private $dbName; 
-    public $dbcon; // $dbcon should be public
+    private $dbcon; // $dbcon should be public
 
     function __construct($hostName,$userName,$password,$dbName)
     {

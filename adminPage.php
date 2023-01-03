@@ -2,7 +2,7 @@
   include './pages/header.php';
   include './services/dbservices.php';
   $dbSrv = new dbServices($hostName,$userName,$password,$dbName);
-  if($dbSrv->dbConnect()){
+  if($dbcon = $dbSrv->dbConnect()){
   }else{
     echo "DB connection problem";
   }
